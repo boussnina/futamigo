@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const Menu = ({ currentIndex, setCurrentIndex }) => {
-    const navBar = ["Home", "Statistics", "Contact", "About", "Analytics"]
+    const navBar = ["Home", "Statistics", "Analytics", "Win probabilities", "Futl", "About"]
 
     const handleClick = (index) => {
         setCurrentIndex(index)
@@ -11,12 +11,13 @@ const Menu = ({ currentIndex, setCurrentIndex }) => {
         <>
             <div className="menu-container">
                 <ul>
-                    {navBar.map((item, index) => (
-                        <li 
+                {navBar.map((item, index) => (
+                    <li 
                         key={index} 
                         onClick={() => handleClick(index)}
-                        style={{ fontWeight: currentIndex === index ? 'bold' : 'normal' }}>
-                            {item}</li>
+                        className={currentIndex === index ? 'chosen' : ''}>
+                        {item}
+                    </li>
                     ))}
                 </ul>
             </div>

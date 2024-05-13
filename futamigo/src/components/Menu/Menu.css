@@ -1,0 +1,22 @@
+.menu-container {
+    display: flex;
+  }
+  
+  .menu-container ul{
+    display: flex;
+    padding: 0;
+    margin: 0; 
+    height: 3vh;
+  }
+  
+  .menu-container li{
+    list-style: none;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    font-family: 'Bebas Neue';
+  }
+  
+  .menu-container .chosen {
+    color: red;
+  }
+  

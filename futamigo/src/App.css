@@ -4,22 +4,42 @@ body {
 }
 
 .header {
+  display: flex; /* Use flexbox to lay out children inline */
+  align-items: left; /* Align children vertically in the center */
+  min-height: 7vh;
   height: 7vh;
   width: 100vw;
   background-color: red;
 }
 
-.header h1 {
-  margin-top: 0px;
-  color: red;
-  text-shadow: 1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, -1px 1px 2px white;
+.header img {
+  height: 100%; /* Make the image fill the height of the header */
+  width: auto; /* Maintain the aspect ratio of the image */
 }
 
+.header h1 {
+  margin-top: 0px; /* Align top edge with the header */
+  color: red;
+  text-shadow: 1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, -1px 1px 2px white;
+  width: auto;
+  margin-left: 0.5vw;
+}
 
 .footer {
   position: fixed;
   bottom: 0;
   height: 9vh;
   width: 100vw;
-  background-color: whitesmoke;
+  background-color: rgb(205, 205, 205);
+}
+
+.content {
+  position: fixed;
+  margin-top: 0;
+  height: calc(100vh - 3vh - 7vh - 9vh);
+  width: calc(100vw - 8vw - 8vw);
+  margin-left: 8vw;
+  margin-right: 8vw;
+  margin-bottom: 9vh;
+  background-color: rgba(239, 239, 239, 0.521);
 }

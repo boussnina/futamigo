@@ -1,0 +1,101 @@
+.futl-game {
+    position: absolute;
+    top: 50%; /* Center vertically in the viewport */
+    left: 50%; /* Center horizontally in the viewport */
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Central alignment of all items */
+    background-color: rgb(0, 0, 0);
+    height: calc(100% - 10%); /* Adjust the height calculation as needed */
+    width: 85%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    overflow: hidden; /* Keep all overflows inside the container */
+}
+
+.futl-game-inputs {
+    display: flex;
+    width: 80%; /* Adjust width to control input/button sizing */
+    justify-content: space-between; /* Space items appropriately */
+    padding: 10px 0; /* Padding for vertical spacing */
+}
+
+.futl-game input, .futl-game button {
+    flex: 1; /* Flex-grow to fill available space */
+    margin: 0 10px; /* Margin for spacing between input and button */
+    height: 40px; /* Fixed height for better control */
+    padding: 0 10px;
+    border-radius: 20px;
+    border: none; /* Remove border for aesthetics */
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.futl-game button {
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+}
+
+.futl-game table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px; /* Space between button/input and table */
+}
+
+.futl-game tbody {
+    display: block;
+    max-height: 300px; /* Adjusted for larger content */
+    overflow-y: auto; /* Scroll vertically if needed */
+}
+
+.futl-game thead, .futl-game tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Fixing the layout for consistent rendering */
+}
+
+.futl-game thead th, .futl-game tbody td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.futl-game tbody tr:hover {
+    background-color: blue;
+    color: white;
+}
+
+.futl-game tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.futl-game tbody tr:nth-child(even) {
+    background-color: rgb(241, 241, 241);
+}
+
+.futl-game tbody tr.loading td {
+    font-style: italic;
+}
+
+.suggestions {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.suggestions li {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.suggestions li:hover {
+    background-color: #e0e0e0;
+}
