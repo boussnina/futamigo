@@ -13,6 +13,10 @@ import json
 app = Flask(__name__)
 CORS(app)
 
+#username = u473184132_admin
+#pw = 420Admin69god!
+#host_name = srv1125.hstgr.io
+#db_name = u473184132_futamigo
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://u473184132_admin:420Admin69god!@srv1125.hstgr.io/u473184132_futamigo'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 init_app(app)
