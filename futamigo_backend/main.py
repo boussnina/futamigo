@@ -6,6 +6,9 @@ from db import init_app
 from db import db
 from models import Player
 import random
+import API.player_scraper as ls
+import datetime
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -168,17 +171,7 @@ def randPlayer():
         return jsonify({'error': str(e)}), 500
 
 @app.route('/add_player')
-def add_player():
-    # Create a new player instance
-    new_player = Player(
-        name='Lionel Messi',
-        nationality='Argentine',
-        age = 36,
-        foot='Left',
-        club='Paris Saint-Germain',
-        market_value=80000000
-    )
-
+def add_player(new_player):
     # Add the new player to the database session
     db.session.add(new_player)
 
@@ -187,7 +180,28 @@ def add_player():
 
     return f'Added new player: {new_player.name}'
 
-
+def fill_player_db():
+    leagues = ['premier_league', 'la_liga', 'bundesliga']
+    for league in leagues:
+        with app.app_context():
+            scraper = ls.PlayerScraper()
+            data = scraper.scrape_all_teams(league)
+            data = json.loads(data)
+            for team in data:
+                for player in data[team]:
+                    new_player = Player(
+                        name=player['name'],
+                        nationality=player['nationality'],
+                        age=player['birthdate'],
+                        position=player['position'],
+                        height=player['height'],
+                        foot=player['foot'],
+                        club=player['club'],
+                        market_value=player['market_value']
+                    )
+                    db.session.add(new_player)
+            db.session.commit()
+        
 
 if __name__ == '__main__':
     # with app.app_context():

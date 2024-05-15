@@ -146,7 +146,6 @@ class PlayerScraper:
         players = []
         for i in range(0, len(names)):
             player_info = player_data[i*7:i*7 + 7]
-            print(player_info)
             player_dict = {
                 'name': names[i] if i < len(names) else 'null',
                 'position': positions[i] if i < len(positions) else 'null',
